@@ -113,6 +113,11 @@ new class extends Component {
 
             <div class="flex items-center justify-between">
                 <x-button type="submit" variant="primary" text="Confirm" class=""/>
+                <a
+                    href="{{ route('home') }}"
+                    class="inline-block px-4 py-2 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                    Back to courses
+                </a>
             </div>
         </x-form>
     </div>

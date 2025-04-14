@@ -10,16 +10,11 @@ new class extends Component {
     {
         $this->schools = School::with('courses')->get();
     }
-
-    public function deletedSchool(int $id)
-    {
-
-    }
 }; ?>
 
 <div>
     <div class="container mx-auto py-8">
-        <h1 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">Schools</h1>
+        <h1 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">Schools And Courses</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($schools as $school)
                 <div class="bg-white dark:bg-zinc-700 shadow-md hover:shadow-lg rounded-lg p-6">

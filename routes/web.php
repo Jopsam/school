@@ -15,6 +15,10 @@ Route::view('releases', 'releases')
     ->middleware(['auth', 'verified'])
     ->name('releases');
 
+Route::view('courses/edit', 'edit-course')
+    ->middleware(['auth', 'verified'])
+    ->name('edit-courses');
+
 Route::get('/enroll-student/{course}', function ($course) {
     return view('enroll-students', ['courseId' => $course]);
 })->name('enroll-student');
