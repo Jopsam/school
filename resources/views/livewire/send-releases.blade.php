@@ -32,10 +32,9 @@ new class extends Component {
 
         $emailsByAge = Father::getEmailsByAge($validated['selectedAge']);
 
-
         $allEmails = array_unique(array_merge($emailsByCourse, $emailsByAge));
 
-        Notification::route('mail', 'mendozajeyker1178@gmail.com')
+        Notification::route('mail', 'school@test.com')
             ->notify(new FatherReleases($validated['title'], $validated['message'], $allEmails));
 
         Release::create([
@@ -87,8 +86,16 @@ new class extends Component {
         </div>
 
         <div class="flex items-center justify-between">
-            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Send Release
+            <button
+                type="submit"
+                wire:target="send"
+                wire:loading.attr="disabled"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                <span wire:loading.remove wire:target="send">Send Release</span>
+                <span wire:loading wire:target="send">
+                    Sending...
+                </span>
             </button>
         </div>
     </x-form>
